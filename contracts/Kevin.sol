@@ -1,6 +1,6 @@
-pragma solidity 0.8.20;
+pragma solidity ^0.8.25;
 
-import { UltraVerifier } from "circuits/contract/plonk_vk.sol";
+import { UltraVerifier } from "circuits/contract/ultra_plonk_vk.sol";
 
 contract Kevin is UltraVerifier {
 

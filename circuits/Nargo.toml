@@ -1,6 +1,8 @@
 [package]
+name = "nplate"
+type = "bin"
 authors = ["exp.table"]
-compiler_version = "0.1"
+compiler_version = ">=0.34.0"
 
 [dependencies]
     

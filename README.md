@@ -20,18 +20,23 @@ Regarding the installation of `nargo`, please refer to its repo [here](https://g
 
 ```bash
 cd circuits
-# generates the Solidity contract
-nargo codegen-verifier
-# generates a file "p.proof" in circuits/proofs
-nargo prove p
+# executes the circuit
+nargo execute
+# generates a file "proof" in circuits/target/proof
+bb prove -b ./target/nplate.json -w ./target/nplate.gz -o ./target/proof
+# generates the solidity verifier contract
+bb contract/ultra_plonk_vk.sol
+# verify the circuit and compute its verification key
+bb write_vk -b ./target/nplate.json -o ./target/vk
+bb verify -k ./target/vk -p ./target/proof
 ```
 
 **Testing**
 
-Before testing, be sure you have generated the updated Solidity verifier contract as well as a valid proof!
+Before testing, be sure you have generated the updated Solidity verifier contract!
 
 ```bash
-forge test --ffi
+forge test
 ```
 
 ## License
